@@ -1,0 +1,9 @@
+{
+  devices: [
+    { baddr:"A8:1B:6A:6E:5A:DA", name:"LCRIQ-f8-dc-7a-18-93-6e", description="Pawel's Rev E unit"},
+    { baddr:"A8:1B:6A:6E:5C:FA", name:"LCRIQ-f8-dc-7a-17-95-ec", description="Eric's Rev E unit"},
+    { baddr:"3C:A3:08:AB:F3:39", name:"LCRIQ-f8-dc-7a-18-92-e5", description="(Unit-1 rev J):"},
+    { baddr:"3C:A3:08:AE:7B:63", name:"LCRIQ-f8-dc-7a-18-93-95", description="(Unit-2 rev E):"},
+    { baddr:"3C:A3:08:C5:7C:2A", name:"LCRIQ-f8-dc-7a-18-93-30", description="(Unit-3 rev E)" }
+  ]
+}

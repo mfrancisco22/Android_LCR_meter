@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:excludeFromRecents="true"
+    tools:context=".ConnectActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/connect_guideline_vertical_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.01"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/connect_guideline_vertical_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.99"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/connect_guideline_vertical_center_center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.53"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/connect_guideline_vertical_center_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/connect_guideline_vertical_center_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.23" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/connect_guideline_horizontal_top_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.01"
+        />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/connect_guideline_horizontal_bottom_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.99"
+        />
+
+    <!-- Wi-Fi -->
+    <TextView
+        android:id="@+id/ip_address_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:singleLine="true"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/wi_fi_ip_address"
+        app:layout_constraintTop_toTopOf="@+id/connect_guideline_horizontal_top_margin"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_left"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_center_center"
+        />
+
+
+    <EditText
+        android:id="@+id/ip_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="end"
+        android:layout_weight="2"
+        android:hint="@string/ip_address"
+        android:inputType="numberDecimal"
+        android:digits="0123456789."
+        android:text="@string/ip_192_168_1_30"
+        app:layout_constraintTop_toTopOf="@+id/ip_address_label"
+        app:layout_constraintBottom_toBottomOf="@+id/ip_address_label"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_center_center"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        />
+
+    <EditText
+        android:id="@+id/lcp_node_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_weight="2"
+        android:focusableInTouchMode="true"
+        android:gravity="end"
+        android:inputType="number"
+        android:singleLine="true"
+        android:text="@string/lcp_node_address"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_right"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_center_center"
+        app:layout_constraintTop_toBottomOf="@+id/bt_device_address" />
+
+    <TextView
+        android:id="@+id/ip_port_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:singleLine="true"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/wi_fi_ip_port"
+        android:labelFor="@+id/ip_port_label"
+        app:layout_constraintTop_toBottomOf="@+id/ip_address_label"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_left"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_center_center"
+        />
+
+    <TextView
+        android:id="@+id/lcp_node_address_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:labelFor="@+id/lcp_node_address_label"
+        android:text="@string/lcp_node_address_label"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_center_center"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_left"
+        app:layout_constraintTop_toBottomOf="@+id/bt_device_label" />
+
+    <EditText
+        android:id="@+id/ip_port"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:digits="0123456789"
+        android:gravity="end"
+        android:hint="@string/ip_port"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:text="@string/num_10001"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ip_port_label"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_center_center"
+        app:layout_constraintTop_toTopOf="@+id/ip_port_label" />
+
+    <!-- Bluetooth -->
+    <TextView
+        android:id="@+id/bt_device_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:singleLine="true"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/bluetooth_device"
+        android:labelFor="@+id/bt_device_label"
+        app:layout_constraintTop_toBottomOf="@+id/ip_port_label"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_left"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_center_center"
+        />
+
+
+    <EditText
+        android:id="@+id/bt_device_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:singleLine="true"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:inputType="text"
+        android:labelFor="@+id/bt_device_address"
+        android:hint="@string/bluetooth_device_address"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_device_label"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_center_center"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        />
+
+
+    <TextView
+        android:id="@+id/bt_device_list_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:singleLine="true"
+        android:text="@string/bluetooth_paired_devices_click_to_select"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_right"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_left"
+        app:layout_constraintTop_toBottomOf="@+id/lcp_node_address_label" />
+
+    <ListView
+        android:id="@+id/deviceList"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/paired_devices_list"
+        android:textColor="@color/black"
+        android:divider="@color/colorPrimaryDark"
+        android:dividerHeight="1dp"
+        android:numColumns="3"
+        android:stackFromBottom="true"
+        android:transcriptMode="normal"
+        app:layout_constraintTop_toBottomOf="@+id/bt_device_list_label"
+        app:layout_constraintBottom_toTopOf="@+id/ok_button"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_left"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_right"
+        />
+
+
+
+    <!-- Upper left first row -->
+    <Button
+        android:id="@+id/button_select_wifi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/wi_fi"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_left"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_center_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        />
+
+    <Button
+        android:id="@+id/button_select_bluetooth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/bluetooth"
+        app:layout_constraintLeft_toRightOf="@id/button_select_wifi"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_center_left"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_center_center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        />
+
+    <Button
+        android:id="@+id/button_select_bluetooth_from_json"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/button_select_bluetooth_from_json"
+        app:layout_constraintLeft_toRightOf="@id/button_select_bluetooth"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_center_center"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_center_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        />
+
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/ok"
+        app:layout_constraintLeft_toRightOf="@id/button_select_bluetooth_from_json"
+        app:layout_constraintStart_toStartOf="@+id/connect_guideline_vertical_center_right"
+        app:layout_constraintEnd_toStartOf="@+id/connect_guideline_vertical_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        />
+
+
+
+</android.support.constraint.ConstraintLayout>

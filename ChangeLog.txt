@@ -1,0 +1,24 @@
+Version beta2 - 6-11-19:
+
+	New functionality:
+
+		+ Added ConnectActivity 
+
+	Build created and tested with Android Studio 3.3.2
+
+	Requires Android SDK Platform 27 r03
+
+	Gradle upgraded to version 4.6
+	Requires File -> "Sync Project with Gradle Files"
+
+	com.android.support:* upgraded to version 27.1.1
+
+	
+
+
+
+
+	
+
+
+

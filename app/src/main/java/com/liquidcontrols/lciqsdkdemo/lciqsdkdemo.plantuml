@@ -1,0 +1,168 @@
+@startuml
+
+title __LCIQSDKDEMO's Class Diagram__\n
+
+  package com.liquidcontrols.lciqsdkdemo {
+    class ConnectActivity {
+        - ipAddressLabel : TextView
+        - ipPortLabel : TextView
+        - btAddressLabel : TextView
+        - ipAddress : EditText
+        - ipPort : EditText
+        - btAddress : EditText
+        - pairedDevicesView : ListView
+        - aAdapter : ArrayAdapter
+        - bAdapter : BluetoothAdapter
+        - selectBluetooth()
+        - selectWiFi()
+        + onOptionsItemSelected()
+        # onCreate()
+    }
+  }
+  
+
+  package com.liquidcontrols.lciqsdkdemo {
+    enum CONNECTION_TYPE {
+      NONE
+      BLUETOOTH
+      WIFI
+    }
+  }
+  
+
+  package com.liquidcontrols.lciqsdkdemo {
+    class MainActivity {
+        - PRINT_START_CODES : byte[]
+        - PRINT_END_CODES : byte[]
+        - PRINT_TEXT : String
+        - WRITE_FIELD_NAME : String
+        - sendDataToDeviceDialogBuilder : Builder
+        - sendDataToDeviceDialog : AlertDialog
+        - availableLCRFields : List<FieldItem>
+        - buttonChangeConnectionState : Button
+        - buttonChangeDataRequestState : Button
+        - buttonChangeCommandState : Button
+        - buttonChangePreset : Button
+        - buttonRequestExtraData : Button
+        - textViewGrossPresetData : TextView
+        - textViewGrossQtyData : TextView
+        - textViewFlowRate : TextView
+        - textViewSwitchStateData : TextView
+        - textViewFlowStateData : TextView
+        - textViewDeviceStateData : TextView
+        - textViewDeviceConnectionStateData : TextView
+        - textViewNetworkTypeData : TextView
+        - textViewNetworkConnectionStateData : TextView
+        - textViewNetworkAdddressData : TextView
+        - textViewLogger : TextView
+        - textViewLoggerDataList : List<String>
+        - deviceId : String
+        - lcpLCRAddress : Integer
+        - lcpSDKAddress : Integer
+        - wifiIpAddress : String
+        - wifiPort : Integer
+        - bluetoothPairedName : String
+        - bConnectionInitialized : boolean
+        - appTitleText : String
+        - logErrors : Boolean
+        - logWarnings : Boolean
+        - logInfo : Boolean
+        - logDebug : Boolean
+        # onCreate()
+        + onDestroy()
+        - loadUserInterfaceObjects()
+        - setEnableStateOfConnectionRequestedButtons()
+        - setAppTitle()
+        # onActivityResult()
+        + onClick_Button_Change_Connection_State()
+        + onClick_Button_Preset()
+        + onClick_Button_Change_Data_Request_State()
+        + onClick_Button_Print()
+        + onClick_Button_Change_Command_State()
+        + onClick_Button_Exit()
+        - resetStatusTexts()
+        - findUserFieldByName()
+        - doAddDevice()
+        - doRemoveDevice()
+        - getDeviceInfo()
+        - getWifiConnectionOptions()
+        - getBluetoothConnectionOptions()
+        - doDisconnectDevice()
+        - doConnectDevice()
+        - getDeviceId()
+        - addSDKListeners()
+        - refreshStatusListeners()
+        - showSendDataToDeviceDialog()
+        - sendFieldItemValueToDevice()
+        - setGrossPresetActionsEnabledState()
+        - checkAndSetPresetUpdateState()
+        - setTextViewLogger()
+        - doUIActionsForDeviceAddSuccess()
+        - doUIActionsForDeviceDisconnected()
+        - doUIActionsForDeviceConnected()
+        - doUIActionsForDeviceError()
+        - objToStrWithNullCheck()
+        - objToStrWithNullCheck()
+    }
+  }
+  
+
+  package com.liquidcontrols.lciqsdkdemo {
+    enum DEVICE_ACTION {
+      CONNECT
+      CONNECTING
+      DISCONNECT
+      DISCONNECTING
+    }
+  }
+  
+
+  package com.liquidcontrols.lciqsdkdemo {
+    enum BUTTON_ACTIONS {
+      ACTIVE
+      PASSIVE
+    }
+  }
+  
+
+  package com.liquidcontrols.lciqsdkdemo {
+    enum CONNECTION_TYPE {
+      BLUETOOTH
+      WIFI
+    }
+  }
+  
+
+  ConnectActivity -up-|> AppCompatActivity
+  ConnectActivity o-- CONNECTION_TYPE : connectionToUse
+  ConnectActivity +-down- CONNECTION_TYPE
+  HostCallbacks -up-|> FragmentHostCallback
+  MainActivity -up-|> AppCompatActivity
+  MainActivity o-- LcrSdk : lcrSdk
+  MainActivity o-- CONNECTION_TYPE : connectionToUse
+  MainActivity o-- FieldItem : grossQty
+  MainActivity o-- FieldItem : grossPreset
+  MainActivity o-- FieldItem : flowRate
+  MainActivity o-- DeviceListener : deviceListener
+  MainActivity o-- DeviceConnectionListener : deviceConnectionListener
+  MainActivity o-- FieldListener : fieldListener
+  MainActivity o-- CommandListener : commandListener
+  MainActivity o-- SwitchStateListener : switchStateListener
+  MainActivity o-- DeviceStatusListener : deviceStatusListener
+  MainActivity o-- PrinterStatusListener : printerStatusListener
+  MainActivity o-- DeviceCommunicationListener : deviceCommunicationListener
+  MainActivity o-- NetworkConnectionListener : networkConnectionListener
+  MainActivity +-down- DEVICE_ACTION
+  MainActivity +-down- BUTTON_ACTIONS
+  MainActivity +-down- CONNECTION_TYPE
+  HostCallbacks -up-|> FragmentHostCallback
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
