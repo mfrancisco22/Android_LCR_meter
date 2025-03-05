@@ -1,11 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    namespace "com.liquidcontrols.lciqsdkdemo"
+    compileSdkVersion 33
+//    namespace "com.test.lcr"
     defaultConfig {
         applicationId "com.liquidcontrols.lciqsdkdemo"
-        minSdkVersion 19
-        targetSdkVersion 27
+//        applicationId "com.test.lcr"
+        minSdkVersion 31
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -21,7 +24,6 @@ android {
             debuggable true
         }
     }
-    buildToolsVersion '27.0.3'
 
     /* TODO: resolve disabled lint issues */
     lintOptions {

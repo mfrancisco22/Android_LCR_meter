@@ -225,6 +225,18 @@ public class MainActivity extends AppCompatActivity {
 					new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
 					1);
 		}
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN)
+				!= PackageManager.PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(this,
+					new String[]{Manifest.permission.BLUETOOTH_SCAN},
+					1);
+		}
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT)
+				!= PackageManager.PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(this,
+					new String[]{Manifest.permission.BLUETOOTH_CONNECT},
+					2);
+		}
 
 		// Init Dialog builder object (for enter gross preset value)
 		sendDataToDeviceDialogBuilder = new AlertDialog.Builder(this);
@@ -308,13 +320,19 @@ public class MainActivity extends AppCompatActivity {
 
 		// Initialize Bluetooth
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-		if (!mBluetoothAdapter.isEnabled()) {
-			Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-			startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-		} else {
-			doStartScanning();
-		}
+		if (mBluetoothAdapter != null) {
+			Log.d("Bluetooth", "Bluetooth Adapter found");
 
+			if (!mBluetoothAdapter.isEnabled()) {
+				Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+				startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+			} else {
+				doStartScanning();
+			}
+		} else {
+			Log.e("Bluetooth", "Bluetooth Adapter is null!");
+		}
+		
 		// Don't do it here
 		if ( bConnectionInitialized ) {
 			// Request SDK make init routines. Call AsyncCallback for result
